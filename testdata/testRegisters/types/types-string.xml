@@ -1,0 +1,20 @@
+<TypesRegister xmlns="http://www.smpte-ra.org/schemas/2003/2012">
+    <Entries>
+        <Entry>
+            <Register>Types</Register>
+            <NamespaceName>http://www.smpte-ra.org/reg/2003/2012</NamespaceName>
+            <Symbol>UTF16String</Symbol>
+            <UL>urn:smpte:ul:060e2b34.01040101.01100200.00000000</UL>
+            <Kind>LEAF</Kind>
+            <Name>UTF16String</Name>
+            <Applications>AAF~String</Applications>
+            <Notes>MXF was UTF16 AAF was String harmonized to UTF16String</Notes>
+            <IsDeprecated>false</IsDeprecated>
+            <ContextScope>UnknownContext</ContextScope>
+            <TypeKind>String</TypeKind>
+            <TypeSize>0</TypeSize>
+            <BaseType>urn:smpte:ul:060e2b34.01040101.01100100.00000000</BaseType>
+            <TypeQualifiers>isOrdered isCountImplicit isSizeImplicit</TypeQualifiers>
+        </Entry>
+    </Entries>
+</TypesRegister>

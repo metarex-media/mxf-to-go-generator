@@ -1,0 +1,38 @@
+// Copyright ©2019-2024  Mr MXF   info@mrmxf.com
+// BSD-3-Clause License  https://opensource.org/license/bsd-3-clause/
+package mxf2go
+
+import (
+    "encoding/binary"
+	"unicode/utf16"
+	"unicode/utf8"
+)
+
+type TRational struct {
+    Numerator int32
+    Denominator int32
+}
+func DecodeTRational(value []byte) (any, error){
+   result := TRational{}
+    var field any
+    field , _ = DecodeTInt32(value[0:4])
+    result.Numerator = field.(int32) // else
+    field , _ = DecodeTInt32(value[4:8])
+    result.Denominator = field.(int32) // else
+    return result, nil
+}
+func EncodeTRational(value TRational) ([]byte, error){
+    result := []byte{}
+        field0, _ := EncodeTInt32(int32(value.Numerator)) // else
+    result = append(result, field0...)
+    field1, _ := EncodeTInt32(int32(value.Denominator)) // else
+    result = append(result, field1...)
+    return result, nil
+}
+
+
+func EncodeTUTF16StringArray(value TUTF16StringArray) ([]byte, error) {
+	parts := utf16.Encode([]rune(string(value)))
+	result, _ := EncodeTUInt16Array([]uint16(parts))
+	return result, nil
+}

@@ -1,0 +1,49 @@
+<ElementsRegister xmlns="http://www.smpte-ra.org/schemas/335/2012">
+    <Entries>
+      <Entry>
+        <Register>Elements</Register>
+        <NamespaceName>http://www.smpte-ra.org/reg/335/2012</NamespaceName>
+        <Symbol>ISO8601Time</Symbol>
+        <UL>urn:smpte:ul:060e2b34.01010105.0e090400.01000000</UL>
+        <Kind>LEAF</Kind>
+        <Name>Namespace URI</Name>
+        <Definition>ISO 8601 defined as a UTF-8 string</Definition>
+        <Applications>AAF</Applications>
+        <DefiningDocument>MRX-SPEC</DefiningDocument>
+        <IsDeprecated>false</IsDeprecated>
+        <ContextScope>UnknownContext</ContextScope>
+        <Type>urn:smpte:ul:060e2b34.01040101.01100600.00000000</Type>
+        <ValueLength>Variable</ValueLength>
+      </Entry>
+      <Entry>
+        <Register>Elements</Register>
+        <NamespaceName>http://www.smpte-ra.org/reg/335/2012</NamespaceName>
+        <Symbol>MetarexID</Symbol>
+        <UL>urn:smpte:ul:060e2b34.01010105.0e090400.02000000</UL>
+        <Kind>LEAF</Kind>
+        <Name>Namespace URI</Name>
+        <Definition>Metarex ID as a human readable string</Definition>
+        <Applications>AAF</Applications>
+        <DefiningDocument>MRX-SPEC</DefiningDocument>
+        <IsDeprecated>false</IsDeprecated>
+        <ContextScope>UnknownContext</ContextScope>
+        <Type>urn:smpte:ul:060e2b34.01040101.01100600.00000000</Type>
+        <ValueLength>Variable</ValueLength>
+      </Entry>
+      <Entry>
+        <Register>Elements</Register>
+        <NamespaceName>http://www.smpte-ra.org/reg/335/2012</NamespaceName>
+        <Symbol>RegURI</Symbol>
+        <UL>urn:smpte:ul:060e2b34.01010105.0e090400.03000000</UL>
+        <Kind>LEAF</Kind>
+        <Name>Namespace URI</Name>
+        <Definition>Reg URI hint for metarex registers</Definition>
+        <Applications>AAF</Applications>
+        <DefiningDocument>MRX-SPEC</DefiningDocument>
+        <IsDeprecated>false</IsDeprecated>
+        <ContextScope>UnknownContext</ContextScope>
+        <Type>urn:smpte:ul:060e2b34.01040101.01100600.00000000</Type>
+        <ValueLength>Variable</ValueLength>
+      </Entry>
+    </Entries>
+</ElementsRegister>

@@ -1,0 +1,42 @@
+// Copyright ©2019-2024  Mr MXF   info@mrmxf.com
+// BSD-3-Clause License  https://opensource.org/license/bsd-3-clause/
+package mxf2go
+
+import (
+    "encoding/binary"
+	"unicode/utf16"
+	"unicode/utf8"
+)
+
+type TAS_11_Captions_Type_Enum uint8
+
+func (mt TAS_11_Captions_Type_Enum) MarshalText() ([]byte, error) {
+    return []byte(mt.String()), nil
+}
+
+func (s TAS_11_Captions_Type_Enum)String() string {
+
+     switch s {
+    case 0:
+        return "Captions_Hard_of_Hearing" 
+    case 1:
+        return "Captions_Translation" 
+    default:
+        return "invalid value"
+    }
+}
+func DecodeTAS_11_Captions_Type_Enum(value []byte) (any, error){
+    field , _ := DecodeTUInt8(value[0:1])
+    result := TAS_11_Captions_Type_Enum(field.(uint8)) 
+    return result, nil
+}
+func EncodeTAS_11_Captions_Type_Enum(value TAS_11_Captions_Type_Enum) ([]byte, error) {
+	result, _ := EncodeTUInt8(uint8(value))
+	return result, nil
+}
+
+func EncodeTUTF16StringArray(value TUTF16StringArray) ([]byte, error) {
+	parts := utf16.Encode([]rune(string(value)))
+	result, _ := EncodeTUInt16Array([]uint16(parts))
+	return result, nil
+}

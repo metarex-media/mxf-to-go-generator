@@ -1,0 +1,60 @@
+
+<EssenceRegister xmlns="http://www.smpte-ra.org/schemas/2088/2019">
+    <Entries>
+        <Entry>
+            <Register>Essence</Register>
+            <NamespaceName>http://www.smpte-ra.org/reg/2088/2019</NamespaceName>
+            <Symbol>ESSENCEDICTIONARY</Symbol>
+            <UL>urn:smpte:ul:060e2b34.01020101.00000000.00000000</UL>
+            <Kind>NODE</Kind>
+            <Name>ESSENCE DICTIONARY</Name>
+            <Definition>CATALOGUE OF ESSENCE ITEMS</Definition>
+            <DefiningDocument>SMPTE ST 2088</DefiningDocument>
+            <IsDeprecated>false</IsDeprecated>
+        </Entry>
+        <Entry>
+            <Register>Essence</Register>
+            <NamespaceName>http://www.smpte-ra.org/reg/2088/2019/13/1/aaf</NamespaceName>
+            <Symbol>GCCompoundItem</Symbol>
+            <UL>urn:smpte:ul:060e2b34.01020101.0d010301.18000000</UL>
+            <Kind>NODE</Kind>
+            <Name>GC Compound Item</Name>
+            <Definition>Key values for GC Compound Elements</Definition>
+            <DefiningDocument>SMPTE ST 379</DefiningDocument>
+            <IsDeprecated>false</IsDeprecated>
+        </Entry>
+        <Entry>
+            <Register>Essence</Register>
+            <NamespaceName>http://www.smpte-ra.org/reg/2088/2019/13/1/aaf</NamespaceName>
+            <Symbol>CustomWrappedVC5PictureElement</Symbol>
+            <UL>urn:smpte:ul:060e2b34.01020101.0d010301.157f167f</UL>
+            <Kind>LEAF</Kind>
+            <Name>Custom-wrapped VC-5 Picture Element</Name>
+            <Definition>Identifies a custom-wrapped VC-5 Picture Element</Definition>
+            <DefiningDocument>SMPTE ST 2073-10</DefiningDocument>
+            <IsDeprecated>false</IsDeprecated>
+        </Entry>
+        <Entry>
+            <Register>Essence</Register>
+            <NamespaceName>http://www.smpte-ra.org/reg/2088/2019/13/1/aaf</NamespaceName>
+            <Symbol>TypeD10Element</Symbol>
+            <UL>urn:smpte:ul:060e2b34.01020101.0d010301.0501017f</UL>
+            <Kind>LEAF</Kind>
+            <Name>Type D-10 Element</Name>
+            <Definition>Identifies a Type D-10 constrained MPEG2 4:2:2 coded element (see SMPTE 331)</Definition>
+            <DefiningDocument>SMPTE ST 386</DefiningDocument>
+            <IsDeprecated>false</IsDeprecated>
+        </Entry>
+        <Entry>
+            <Register>Essence</Register>
+            <NamespaceName>http://www.smpte-ra.org/reg/2088/2019/13/1/aaf</NamespaceName>
+            <Symbol>ClipWrappedMPEGPictureElement</Symbol>
+            <UL>urn:smpte:ul:060e2b34.01020101.0d010301.157f067f</UL>
+            <Kind>LEAF</Kind>
+            <Name>Clip-wrapped MPEG Picture Element</Name>
+            <Definition>Identifies a clip-wrapped MPEG picture element</Definition>
+            <DefiningDocument>SMPTE ST 381</DefiningDocument>
+            <IsDeprecated>false</IsDeprecated>
+        </Entry>
+    </Entries>
+</EssenceRegister>

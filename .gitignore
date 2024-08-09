@@ -1,0 +1,7 @@
+**/*.mxf
+**/*.mrxparts
+**/*.mp4
+
+!examples/rexy/*
+
+/mxf-to-go-generator

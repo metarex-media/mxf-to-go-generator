@@ -1,0 +1,37 @@
+// Copyright ©2019-2024  Mr MXF   info@mrmxf.com
+// BSD-3-Clause License  https://opensource.org/license/bsd-3-clause/
+package mxf2go
+
+// LabelInformation is the register layout of the label information
+type LabelInformation struct {
+	UL               string   `xml:"UL,omitempty"`
+	Name             string   `xml:"Name,omitempty"`
+	Symbol           string   `xml:"Symbol,omitempty"`
+	Definition       string   `xml:"Definition,omitempty"`
+	DefiningDocument string   `xml:"DefiningDocument,omitempty"`
+	IsDeprecated     bool     `xml:"IsDeprecated,omitempty"`
+}
+const (
+    MXFGCCustomClosedGOPWrappedMPEGESVideoStream9SID = iota 
+    MXFGCHEVCNALUnitStreamWithVideoStream15SIDCustomClosedGOPWrapped
+    MPEG2422PMLIFrame
+    JPEG2000BroadcastContributionMultiTileReversibleProfileLevel6
+)
+// LabelsRegister is an array of the labels in the labels register.
+// Values are found with the positional constants e.g. mxf2go.MXF_GC_IAData_Frame_Wrapped
+var LabelsRegister = []LabelInformation{
+    { UL: "urn:smpte:ul:060e2b34.04010102.0d010301.02046907",  Name: "MXF-GC CustomClosedGOP-wrapped MPEG-ES VideoStream-9 SID", Symbol: "MXFGCCustomClosedGOPWrappedMPEGESVideoStream9SID",  Definition: "Identifier for MXF-GC CustomClosedGOP-wrapped MPEG-ES with VideoStream-9 SID value", DefiningDocument:"SMPTE ST 381", IsDeprecated: false},
+    { UL: "urn:smpte:ul:060e2b34.0401010d.0d010301.021f6f07",  Name: "MXF-GC HEVC NAL Unit Stream With VideoStream-15 SID CustomClosedGOP-wrapped", Symbol: "MXFGCHEVCNALUnitStreamWithVideoStream15SIDCustomClosedGOPWrapped",  Definition: "Identifier for a MXF-GC HEVC NAL Unit Stream With VideoStream-15 SID        CustomClosedGOP-wrapped", DefiningDocument:"SMPTE ST 381-5", IsDeprecated: false},
+    { UL: "urn:smpte:ul:060e2b34.04010103.04010202.01020200",  Name: "MPEG-2 422P-ML I-Frame", Symbol: "MPEG2422PMLIFrame",  Definition: "Identifies MPEG-2 422P-ML I-Frame coding", DefiningDocument:"ISO/IEC 13818-2", IsDeprecated: false},
+    { UL: "urn:smpte:ul:060e2b34.0401010d.04010202.03010116",  Name: "JPEG 2000 Broadcast Contribution Multi-tile Reversible Profile Level 6", Symbol: "JPEG2000BroadcastContributionMultiTileReversibleProfileLevel6",  Definition: "Identifies a JPEG 2000 Bitstream with an Broadcast Contribution Multi-tile        Reversible Profile Level 6", DefiningDocument:"ISO/IEC 15444-1:2002 AMD 1", IsDeprecated: false},
+}
+
+// LabelsLookUp is a map of the labels in the labels register.
+// Values are found with their UL which takes the format
+// "urn:smpte:ul:00000000.00000000.00000000.00000000"
+var LabelsLookUp = map[string]LabelInformation{
+    "urn:smpte:ul:060e2b34.04010102.0d010301.02046907" : { UL: "urn:smpte:ul:060e2b34.04010102.0d010301.02046907",  Name: "MXF-GC CustomClosedGOP-wrapped MPEG-ES VideoStream-9 SID", Symbol: "MXFGCCustomClosedGOPWrappedMPEGESVideoStream9SID",  Definition: "Identifier for MXF-GC CustomClosedGOP-wrapped MPEG-ES with VideoStream-9 SID value", DefiningDocument:"SMPTE ST 381", IsDeprecated: false},
+    "urn:smpte:ul:060e2b34.0401010d.0d010301.021f6f07" : { UL: "urn:smpte:ul:060e2b34.0401010d.0d010301.021f6f07",  Name: "MXF-GC HEVC NAL Unit Stream With VideoStream-15 SID CustomClosedGOP-wrapped", Symbol: "MXFGCHEVCNALUnitStreamWithVideoStream15SIDCustomClosedGOPWrapped",  Definition: "Identifier for a MXF-GC HEVC NAL Unit Stream With VideoStream-15 SID        CustomClosedGOP-wrapped", DefiningDocument:"SMPTE ST 381-5", IsDeprecated: false},
+    "urn:smpte:ul:060e2b34.04010103.04010202.01020200" : { UL: "urn:smpte:ul:060e2b34.04010103.04010202.01020200",  Name: "MPEG-2 422P-ML I-Frame", Symbol: "MPEG2422PMLIFrame",  Definition: "Identifies MPEG-2 422P-ML I-Frame coding", DefiningDocument:"ISO/IEC 13818-2", IsDeprecated: false},
+    "urn:smpte:ul:060e2b34.0401010d.04010202.03010116" : { UL: "urn:smpte:ul:060e2b34.0401010d.04010202.03010116",  Name: "JPEG 2000 Broadcast Contribution Multi-tile Reversible Profile Level 6", Symbol: "JPEG2000BroadcastContributionMultiTileReversibleProfileLevel6",  Definition: "Identifies a JPEG 2000 Bitstream with an Broadcast Contribution Multi-tile        Reversible Profile Level 6", DefiningDocument:"ISO/IEC 15444-1:2002 AMD 1", IsDeprecated: false},
+}

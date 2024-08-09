@@ -1,0 +1,71 @@
+<EssenceRegister xmlns="http://www.smpte-ra.org/schemas/2088/2019">
+  <Entries>
+      <Entry>
+          <Register>Essence</Register>
+          <NamespaceName>http://www.smpte-ra.org/reg/2088/2019</NamespaceName>
+          <Symbol>FrameWrappedISXDData</Symbol>
+          <UL>urn:smpte:ul:060e2b34.01020105.0e090502.017f017f</UL>
+          <Kind>LEAF</Kind>
+          <Name>Frame Wrapped ISXD Data</Name>
+          <Definition>Identifies Frame Wrapped ISXD Data Essence</Definition>
+          <DefiningDocument>RDD 47</DefiningDocument>
+          <IsDeprecated>false</IsDeprecated>
+      </Entry>
+      <Entry>
+        <Register>Essence</Register>
+        <NamespaceName>http://www.smpte-ra.org/reg/2088/2019</NamespaceName>
+        <Symbol>FrameWrappedBinaryData</Symbol>
+        <UL>urn:smpte:ul:060e2b34.01020101.0f020101.017f007f</UL>
+        <Kind>LEAF</Kind>
+        <Name>Frame Wrapped Binary Data</Name>
+        <Definition>Identifies Frame Wrapped Binary Data</Definition>
+        <DefiningDocument>MRX TestSpec</DefiningDocument>
+        <IsDeprecated>false</IsDeprecated>
+      </Entry>
+      <Entry>
+        <Register>Essence</Register>
+        <NamespaceName>http://www.smpte-ra.org/reg/2088/2019</NamespaceName>
+        <Symbol>ClipWrappedBinaryData</Symbol>
+        <UL>urn:smpte:ul:060e2b34.0101010c.0d01050d.01000000</UL>
+        <Kind>LEAF</Kind>
+        <Name>Clip Wrapped Binary Data</Name>
+        <Definition>Identifies Clip Wrapped Binary Data</Definition>
+        <DefiningDocument>MRX TestSpec</DefiningDocument>
+        <IsDeprecated>false</IsDeprecated>
+      </Entry>
+      <Entry>
+        <Register>Essence</Register>
+        <NamespaceName>http://www.smpte-ra.org/reg/2088/2019</NamespaceName>
+        <Symbol>ClipWrappedTextData</Symbol>
+        <UL>urn:smpte:ul:060e2b34.0101010c.0d01050d.00000000</UL>
+        <Kind>LEAF</Kind>
+        <Name>Clip Wrapped Text Data</Name>
+        <Definition>Identifies Clip Wrapped Text Data</Definition>
+        <DefiningDocument>MRX TestSpec</DefiningDocument>
+        <IsDeprecated>false</IsDeprecated>
+      </Entry>
+      <Entry>
+        <Register>Essence</Register>
+        <NamespaceName>http://www.smpte-ra.org/reg/2088/2019</NamespaceName>
+        <Symbol>SystemMetadatapack</Symbol>
+        <UL>urn:smpte:ul:060e2b34.02050101.0d010301.04010100</UL>
+        <Kind>LEAF</Kind>
+        <Name>System Metadata pack</Name>
+        <Definition>Identifies Clip Wrapped Text Data</Definition>
+        <DefiningDocument>SMPTE 385</DefiningDocument>
+        <IsDeprecated>false</IsDeprecated>
+      </Entry>
+      <Entry>
+        <Register>Essence</Register>
+        <NamespaceName>http://www.smpte-ra.org/reg/2088/2019</NamespaceName>
+        <Symbol>MetarexManifest</Symbol>
+        <UL>urn:smpte:ul:060e2b34.01020101.0f020101.05000000</UL>
+        <Kind>LEAF</Kind>
+        <Name>Metarex Manifest</Name>
+        <Definition>Identifies the Metarex Manifest</Definition>
+        <DefiningDocument>MRX TestSpec</DefiningDocument>
+        <IsDeprecated>false</IsDeprecated>
+      </Entry>
+    </Entries>  
+</EssenceRegister>
+    

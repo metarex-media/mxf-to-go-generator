@@ -1,0 +1,18 @@
+<TypesRegister xmlns="http://www.smpte-ra.org/schemas/2003/2012">
+    <Entries>
+        <Entry>
+            <Register>Types</Register>
+            <NamespaceName>http://www.smpte-ra.org/reg/2003/2012</NamespaceName>
+            <Symbol>S330M_Spatial</Symbol>
+            <UL>urn:smpte:ul:060e2b34.01040101.04010f00.00000000</UL>
+            <Kind>LEAF</Kind>
+            <Name>S330M_Spatial</Name>
+            <IsDeprecated>false</IsDeprecated>
+            <ContextScope>UnknownContext</ContextScope>
+            <TypeKind>FixedArray</TypeKind>
+            <TypeSize>12</TypeSize>
+            <BaseType>urn:smpte:ul:060e2b34.01040101.01010100.00000000</BaseType>
+            <TypeQualifiers>isOrdered isCountImplicit isSizeImplicit</TypeQualifiers>
+        </Entry>
+    </Entries>
+</TypesRegister>

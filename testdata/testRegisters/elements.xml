@@ -1,0 +1,58 @@
+<ElementsRegister xmlns="http://www.smpte-ra.org/schemas/335/2012">
+    <Entries>
+      <Entry>
+        <Register>Elements</Register>
+        <NamespaceName>http://www.smpte-ra.org/reg/335/2012</NamespaceName>
+        <Symbol>ComponentObjects</Symbol>
+        <UL>urn:smpte:ul:060e2b34.01010102.06010104.06090000</UL>
+        <Kind>LEAF</Kind>
+        <Name>Components</Name>
+        <Definition>Specifies a vector of references to the clips and transitions in the sequence</Definition>
+        <Applications>AAF~Components mxflib[:1.19]~StructuralComponents</Applications>
+        <DefiningDocument>SMPTE 377M</DefiningDocument>
+        <IsDeprecated>false</IsDeprecated>
+        <ContextScope>UnknownContext</ContextScope>
+        <Type>urn:smpte:ul:060e2b34.01040101.05060100.00000000</Type>
+        <ValueLength>Variable</ValueLength>
+      </Entry>
+      <Entry>
+        <Register>Elements</Register>
+        <NamespaceName>http://www.smpte-ra.org/reg/335/2012</NamespaceName>
+        <Symbol>AuxDataBlockSourceDataItem</Symbol>
+        <UL>urn:smpte:ul:060e2b34.0101010e.02400107.00000000</UL>
+        <Kind>LEAF</Kind>
+        <Name>Aux Data Block Source Data Item</Name>
+        <Definition>Data Item of the source Aux Data Track File</Definition>
+        <DefiningDocument>SMPTE ST 430-14</DefiningDocument>
+        <IsDeprecated>false</IsDeprecated>
+        <ContextScope>UnknownContext</ContextScope>
+        <Type>urn:smpte:ul:060e2b34.01040101.04100100.00000000</Type>
+      </Entry>
+      <Entry>
+        <Register>Elements</Register>
+        <NamespaceName>http://www.ebu.ch/metadata/schemas/ebucore/smpte/class13/element</NamespaceName>
+        <Symbol>imageTechnicalAttributeAnyURIObjects</Symbol>
+        <UL>urn:smpte:ul:060e2b34.01010101.0d020132.1c000000</UL>
+        <Kind>LEAF</Kind>
+        <Name>Image Technical Attribute AnyURI Sets</Name>
+        <Definition>A batch of strong references to technical attribute objects of type AnyURI</Definition>
+        <DefiningDocument>EBU Tech 3293</DefiningDocument>
+        <IsDeprecated>false</IsDeprecated>
+        <ContextScope>UnknownContext</ContextScope>
+        <Type>urn:smpte:ul:060e2b34.01040101.0d020101.03320000</Type>
+      </Entry>
+      <Entry>
+        <Register>Elements</Register>
+        <NamespaceName>http://www.ebu.ch/metadata/schemas/ebucore/smpte/class13/element</NamespaceName>
+        <Symbol>imageTechnicalAttributeBooleanObjects</Symbol>
+        <UL>urn:smpte:ul:060e2b34.01010101.0d020132.1d000000</UL>
+        <Kind>LEAF</Kind>
+        <Name>Image Technical Attribute Boolean Sets</Name>
+        <Definition>A batch of strong references to technical attribute objects of type Boolean</Definition>
+        <DefiningDocument>EBU Tech 3293</DefiningDocument>
+        <IsDeprecated>false</IsDeprecated>
+        <ContextScope>UnknownContext</ContextScope>
+        <Type>urn:smpte:ul:060e2b34.01040101.0d020101.03330000</Type>
+      </Entry>
+    </Entries>
+</ElementsRegister>

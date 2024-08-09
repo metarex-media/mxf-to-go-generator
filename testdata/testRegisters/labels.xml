@@ -1,0 +1,73 @@
+<LabelsRegister xmlns="http://www.smpte-ra.org/schemas/400/2012">
+  <Entries>
+    <Entries>
+      <Entry>
+        <Register>Labels</Register>
+        <NamespaceName>http://www.smpte-ra.org/reg/400/2012</NamespaceName>
+        <Symbol>SMPTELABELS</Symbol>
+        <UL>urn:smpte:ul:060e2b34.04010101.00000000.00000000</UL>
+        <Kind>NODE</Kind>
+        <Name>SMPTE LABELS</Name>
+        <Definition>Register of SMPTE Labels</Definition>
+        <DefiningDocument>SMPTE ST 400</DefiningDocument>
+        <IsDeprecated>false</IsDeprecated>
+      </Entry>
+    </Entries>
+    <Entry>
+      <Register>Labels</Register>
+      <NamespaceName>http://www.smpte-ra.org/reg/400/2012/13/1/aaf</NamespaceName>
+      <Symbol>MXFGCCustomClosedGOPWrappedMPEGESVideoStream9SID</Symbol>
+      <UL>urn:smpte:ul:060e2b34.04010102.0d010301.02046907</UL>
+      <Kind>LEAF</Kind>
+      <Name>MXF-GC CustomClosedGOP-wrapped MPEG-ES VideoStream-9 SID</Name>
+      <Definition>Identifier for MXF-GC CustomClosedGOP-wrapped MPEG-ES with VideoStream-9 SID value</Definition>
+      <DefiningDocument>SMPTE ST 381</DefiningDocument>
+      <IsDeprecated>false</IsDeprecated>
+    </Entry>
+    <Entry>
+      <Register>Labels</Register>
+      <NamespaceName>http://www.smpte-ra.org/reg/400/2012/13/1/aaf</NamespaceName>
+      <Symbol>MXFGCHEVCNALUnitStreamWithVideoStream15SIDCustomClosedGOPWrapped</Symbol>
+      <UL>urn:smpte:ul:060e2b34.0401010d.0d010301.021f6f07</UL>
+      <Kind>LEAF</Kind>
+      <Name>MXF-GC HEVC NAL Unit Stream With VideoStream-15 SID CustomClosedGOP-wrapped</Name>
+      <Definition>Identifier for a MXF-GC HEVC NAL Unit Stream With VideoStream-15 SID
+        CustomClosedGOP-wrapped</Definition>
+      <DefiningDocument>SMPTE ST 381-5</DefiningDocument>
+      <IsDeprecated>false</IsDeprecated>
+    </Entry>
+    <Entry>
+      <Register>Labels</Register>
+      <NamespaceName>http://www.smpte-ra.org/reg/400/2012</NamespaceName>
+      <Symbol>MPEG2422PMLIFrame</Symbol>
+      <UL>urn:smpte:ul:060e2b34.04010103.04010202.01020200</UL>
+      <Kind>LEAF</Kind>
+      <Name>MPEG-2 422P-ML I-Frame</Name>
+      <Definition>Identifies MPEG-2 422P-ML I-Frame coding</Definition>
+      <DefiningDocument>ISO/IEC 13818-2</DefiningDocument>
+      <IsDeprecated>false</IsDeprecated>
+    </Entry>
+    <Entry>
+      <Register>Labels</Register>
+      <NamespaceName>http://www.smpte-ra.org/reg/400/2012</NamespaceName>
+      <Symbol>SMPTED10MPEG2422PML</Symbol>
+      <UL>urn:smpte:ul:060e2b34.04010101.04010202.01020100</UL>
+      <Kind>NODE</Kind>
+      <Name>SMPTE D-10 MPEG-2 422P-ML</Name>
+      <Definition>Identifies SMPTE Type-D10 MPEG-2 constrained 422P@ML</Definition>
+      <IsDeprecated>false</IsDeprecated>
+    </Entry>
+    <Entry>
+      <Register>Labels</Register>
+      <NamespaceName>http://www.smpte-ra.org/reg/400/2012</NamespaceName>
+      <Symbol>JPEG2000BroadcastContributionMultiTileReversibleProfileLevel6</Symbol>
+      <UL>urn:smpte:ul:060e2b34.0401010d.04010202.03010116</UL>
+      <Kind>LEAF</Kind>
+      <Name>JPEG 2000 Broadcast Contribution Multi-tile Reversible Profile Level 6</Name>
+      <Definition>Identifies a JPEG 2000 Bitstream with an Broadcast Contribution Multi-tile
+        Reversible Profile Level 6</Definition>
+      <DefiningDocument>ISO/IEC 15444-1:2002 AMD 1</DefiningDocument>
+      <IsDeprecated>false</IsDeprecated>
+    </Entry>
+  </Entries>
+</LabelsRegister>

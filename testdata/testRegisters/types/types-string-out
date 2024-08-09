@@ -1,0 +1,32 @@
+// Copyright ©2019-2024  Mr MXF   info@mrmxf.com
+// BSD-3-Clause License  https://opensource.org/license/bsd-3-clause/
+package mxf2go
+
+import (
+    "encoding/binary"
+	"unicode/utf16"
+	"unicode/utf8"
+)
+
+type TUTF16String []rune
+func DecodeTUTF16String(value []byte) (any, error){
+    parts := make([]uint16, len(value)/2)
+    for i := 0; i< len(value); i += 2 {
+        parts[i/2] = binary.BigEndian.Uint16(value[i:i+2])
+       }
+    runes := utf16.Decode(parts)
+    return string(runes) , nil
+}
+
+func EncodeTUTF16String(value TUTF16String) ([]byte, error){
+parts := utf16.Encode([]rune(string(value)))
+    result, _  := EncodeTUInt16Array([]uint16(parts))
+    return result , nil
+}
+
+
+func EncodeTUTF16StringArray(value TUTF16StringArray) ([]byte, error) {
+	parts := utf16.Encode([]rune(string(value)))
+	result, _ := EncodeTUInt16Array([]uint16(parts))
+	return result, nil
+}

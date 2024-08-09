@@ -1,0 +1,34 @@
+// Copyright ©2019-2024  Mr MXF   info@mrmxf.com
+// BSD-3-Clause License  https://opensource.org/license/bsd-3-clause/
+package mxf2go
+
+import (
+    "encoding/binary"
+	"unicode/utf16"
+	"unicode/utf8"
+)
+
+type TInt64Array []int64
+func EncodeTInt64Array(value TInt64Array) ([]byte, error) {
+result := []byte{}
+for _, val := range value {
+		field, _ := EncodeTInt64(int64(val))
+		result = append(result, field...)
+	}
+	return result, nil
+}
+func DecodeTInt64Array(value []byte) (any, error){
+   arrayCount := len(value)/8
+   var result TInt64Array = make([]int64, arrayCount)
+    for i:=0; i < arrayCount; i++ {
+        field , _ := DecodeTInt64(value[i*8:i*8+8])
+         result[i] = field.(int64) // else
+    }
+ return result, nil}
+
+
+func EncodeTUTF16StringArray(value TUTF16StringArray) ([]byte, error) {
+	parts := utf16.Encode([]rune(string(value)))
+	result, _ := EncodeTUInt16Array([]uint16(parts))
+	return result, nil
+}

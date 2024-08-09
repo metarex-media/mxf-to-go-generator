@@ -1,0 +1,33 @@
+// Copyright ©2019-2024  Mr MXF   info@mrmxf.com
+// BSD-3-Clause License  https://opensource.org/license/bsd-3-clause/
+package mxf2go
+
+import (
+    "encoding/binary"
+	"unicode/utf16"
+	"unicode/utf8"
+)
+
+type TS330M_Spatial [12]uint8
+func EncodeTS330M_Spatial(value TS330M_Spatial) ([]byte, error) {
+result := []byte{}
+for _, val := range value {
+		field, _ := EncodeTUInt8(uint8(val))
+		result = append(result, field...)
+	}
+	return result, nil
+}
+func DecodeTS330M_Spatial(value []byte) (any, error){
+   var result TS330M_Spatial = [12]uint8{}
+    for i:=0; i < 12; i++ {
+        field , _ := DecodeTUInt8(value[i*1:i*1+1])
+         result[i] = field.(uint8) // else
+    }
+ return result, nil}
+
+
+func EncodeTUTF16StringArray(value TUTF16StringArray) ([]byte, error) {
+	parts := utf16.Encode([]rune(string(value)))
+	result, _ := EncodeTUInt16Array([]uint16(parts))
+	return result, nil
+}

@@ -1,0 +1,95 @@
+<GroupsRegister xmlns="http://www.smpte-ra.org/ns/395/2016">
+    <Entries>
+        <Entry>
+            <Register>Groups</Register>
+            <NamespaceName>http://www.smpte-ra.org/reg/395/2014/13/1/aaf</NamespaceName>
+            <Symbol>FileDescriptorDev</Symbol>
+            <UL>urn:smpte:ul:060e2b34.027f0101.0f010101.01012500</UL>
+            <Kind>NODE</Kind>
+            <Name>File Descriptor</Name>
+            <Definition>File Descriptor</Definition>
+            <Applications>AAF</Applications>
+            <DefiningDocument>AAF Object Specification  SMPTE 377M</DefiningDocument>
+            <IsDeprecated>false</IsDeprecated>
+            <Parent>urn:smpte:ul:060e2b34.027f0101.0d010101.01012400</Parent>
+            <IsConcrete>false</IsConcrete>
+            <KLVSyntax>06 53</KLVSyntax>
+            <Contents>
+                <Record>
+                <UL>urn:smpte:ul:060e2b34.01010101.04060101.00000000</UL>
+                <LocalTag>3001</LocalTag>
+                <IsUniqueID>false</IsUniqueID>
+                <IsOptional>false</IsOptional>
+                </Record>
+                <Record>
+                <UL>urn:smpte:ul:060e2b34.01010101.04060102.00000000</UL>
+                <LocalTag>3002</LocalTag>
+                <IsUniqueID>false</IsUniqueID>
+                <IsOptional>true</IsOptional>
+                </Record>
+                <Record>
+                <UL>urn:smpte:ul:060e2b34.01010102.06010104.01020000</UL>
+                <LocalTag>3004</LocalTag>
+                <IsUniqueID>false</IsUniqueID>
+                <IsOptional>false</IsOptional>
+                </Record>
+                <Record>
+                <UL>urn:smpte:ul:060e2b34.01010102.06010104.01030000</UL>
+                <LocalTag>3005</LocalTag>
+                <IsUniqueID>false</IsUniqueID>
+                <IsOptional>true</IsOptional>
+                </Record>
+                <Record>
+                <UL>urn:smpte:ul:060e2b34.01010105.06010103.05000000</UL>
+                <LocalTag>3006</LocalTag>
+                <IsUniqueID>false</IsUniqueID>
+                <IsOptional>true</IsOptional>
+                </Record>
+            </Contents>
+        </Entry>
+        <Entry>
+            <Register>Groups</Register>
+            <NamespaceName>http://www.smpte-ra.org/reg/395/2014/13/1/aaf</NamespaceName>
+            <Symbol>DataEssenceDescriptorDev</Symbol>
+            <UL>urn:smpte:ul:060e2b34.027f0101.0f010101.01014300</UL>
+            <Kind>NODE</Kind>
+            <Name>Data Essence Descriptor</Name>
+            <Definition>Data Essence Descriptor</Definition>
+            <Applications>AAF[1.12:] ASPA[:0.8]</Applications>
+            <DefiningDocument>AAF Object Specification  SMPTE 377M</DefiningDocument>
+            <IsDeprecated>false</IsDeprecated>
+            <Parent>urn:smpte:ul:060e2b34.027f0101.0f010101.01012500</Parent>
+            <IsConcrete>true</IsConcrete>
+            <KLVSyntax>06 53</KLVSyntax>
+            <Contents>
+              <Record>
+                <UL>urn:smpte:ul:060e2b34.01010103.04030302.00000000</UL>
+                <LocalTag>3e01</LocalTag>
+                <IsUniqueID>false</IsUniqueID>
+                <IsOptional>false</IsOptional>
+                <IsIgnorable>false</IsIgnorable>
+              </Record>
+            </Contents>
+        </Entry>
+      <Entry>
+        <Register>Groups</Register>
+        <NamespaceName>http://www.smpte-ra.org/reg/395/2014</NamespaceName>
+        <Symbol>ISXD</Symbol>
+        <UL>urn:smpte:ul:060e2b34.02530105.0e090502.00000000</UL>
+        <Kind>LEAF</Kind>
+        <Name>GROUPS</Name>
+        <Definition>IXSD rdd-47 implementation </Definition>
+        <DefiningDocument>SMPTE ST 395</DefiningDocument>
+        <IsDeprecated>false</IsDeprecated>
+        <IsConcrete>false</IsConcrete>
+        <Parent>urn:smpte:ul:060e2b34.027f0101.0f010101.01014300</Parent>
+        <KLVSyntax>06 53</KLVSyntax>
+        <Contents>
+          <Record>
+            <UL>urn:smpte:ul:060e2b34.01010105.0e090400.00000000</UL> 
+            <IsOptional>false</IsOptional>
+          </Record>
+        </Contents>
+      </Entry>
+    </Entries>
+</GroupsRegister>

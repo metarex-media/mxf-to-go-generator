@@ -1,0 +1,17 @@
+<TypesRegister xmlns="http://www.smpte-ra.org/schemas/2003/2012">
+    <Entries>
+        <Entry>
+            <Register>Types</Register>
+            <NamespaceName>http://www.ebu.ch/metadata/schemas/ebucore/smpte/class13/type</NamespaceName>
+            <Symbol>audioFormatStrongReference</Symbol>
+            <UL>urn:smpte:ul:060e2b34.01040101.0d020101.013e0000</UL>
+            <Kind>LEAF</Kind>
+            <Name>audioFormatStrongReference</Name>
+            <DefiningDocument>EBU Tech 3293</DefiningDocument>
+            <IsDeprecated>false</IsDeprecated>
+            <ContextScope>UnknownContext</ContextScope>
+            <TypeKind>StrongReference</TypeKind>
+            <BaseType>urn:smpte:ul:060e2b34.027f0101.0d020133.00000000</BaseType>
+        </Entry>
+    </Entries>
+</TypesRegister>

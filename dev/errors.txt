@@ -1,0 +1,16 @@
+Group,Line number,expected value, smpte etc
+InterChangeObject, InstanceUID, false, Line 1798 pg 111
+FileDescriptor, SampleRate, false,  line 3074, pg 144 - line 142
+FileDescriptor,Essence Container, false, line 3086 , pg144
+DataEssenceDescriptor, Data Essence Coding, false, line 4511,pg 153
+Track, EssenceTrackNumber, false, 4137, pg 121
+Source Reference, SourcePackageID, false, 2251, pg 123 
+timelinetrack, tracknumber,false,4137, pg121
+source Clip , start position , false, 2292, pg123
+
+
+
+
+groups.xml changes
+9485, change to non optional for some git use
+4397 change to non optinoal for git use use

@@ -1,0 +1,31 @@
+<TypesRegister xmlns="http://www.smpte-ra.org/schemas/2003/2012">
+    <Entries>
+        <Entry>
+            <Register>Types</Register>
+            <NamespaceName>http://www.smpte-ra.org/reg/2003/2012/13/1/amwa/as11</NamespaceName>
+            <Symbol>AS_11_Captions_Type_Enum</Symbol>
+            <UL>urn:smpte:ul:060e2b34.01040101.0d010701.0b010100</UL>
+            <Kind>LEAF</Kind>
+            <Name>Captions Type Enum</Name>
+            <DefiningDocument>AMWA Application Specification AS-11 MXF Program Contribution</DefiningDocument>
+            <IsDeprecated>false</IsDeprecated>
+            <ContextScope>UnknownContext</ContextScope>
+            <TypeKind>Enumeration</TypeKind>
+            <BaseType>urn:smpte:ul:060e2b34.01040101.01010100.00000000</BaseType>
+            <Facets>
+                <Facet>
+                    <Symbol>Captions_Hard_of_Hearing</Symbol>
+                    <Name>Hard of Hearing</Name>
+                    <Value>0</Value>
+                    <IsDeprecated>false</IsDeprecated>
+                </Facet>
+                <Facet>
+                    <Symbol>Captions_Translation</Symbol>
+                    <Name>Translation</Name>
+                    <Value>1</Value>
+                    <IsDeprecated>false</IsDeprecated>
+                </Facet>
+            </Facets>
+        </Entry>
+    </Entries>
+</TypesRegister>

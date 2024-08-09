@@ -1,0 +1,18 @@
+<TypesRegister xmlns="http://www.smpte-ra.org/schemas/2003/2012">
+    <Entries>
+        <Entry>
+            <Register>Types</Register>
+            <NamespaceName>http://www.smpte-ra.org/reg/2003/2012</NamespaceName>
+            <Symbol>Int64Array</Symbol>
+            <UL>urn:smpte:ul:060e2b34.01040101.04010400.00000000</UL>
+            <Kind>LEAF</Kind>
+            <Name>Int64Array</Name>
+            <Applications>AAF</Applications>
+            <IsDeprecated>false</IsDeprecated>
+            <ContextScope>UnknownContext</ContextScope>
+            <TypeKind>VariableArray</TypeKind>
+            <BaseType>urn:smpte:ul:060e2b34.01040101.01010800.00000000</BaseType>
+            <TypeQualifiers>isOrdered</TypeQualifiers>
+          </Entry>
+    </Entries>
+</TypesRegister>

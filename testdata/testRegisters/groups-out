@@ -1,0 +1,248 @@
+// Copyright ©2019-2024  Mr MXF   info@mrmxf.com
+// BSD-3-Clause License  https://opensource.org/license/bsd-3-clause/
+package mxf2go
+
+import (
+    "encoding/binary"
+)
+
+// Group contains the register properties of a group,
+// as well as the function to decode the bytes into a go value.
+type Group struct {
+	UL     string
+	IsOpt  bool
+	Length int
+	Decode func([]byte) (any, error)
+}
+
+// GroupID contains the name of a group and
+// all the possible fields it contains, which can be found with their
+// UL in the format
+// "urn:smpte:ul:00000000.00000000.00000000.00000000"
+type GroupID struct {
+	Name   string
+	Group  map[string]Group
+}
+
+
+func BEREncode(number int) []byte {
+
+switch {
+case number < 127:
+	return []byte{byte(number)}
+case number < 0xff:
+	return []byte{0x81, byte(number)}
+case number < 0xffff:
+	full := make([]byte, 2)
+	binary.BigEndian.PutUint16(full, uint16(number))
+	return append([]byte{0x82}, full...)
+case number < 0xffffffff:
+	full := make([]byte, 4)
+	binary.BigEndian.PutUint32(full, uint32(number))
+	return append([]byte{0x84}, full...)
+default:
+	full := make([]byte, 8)
+	binary.BigEndian.PutUint64(full, uint64(number))
+	return append([]byte{0x88}, full...)
+}
+
+}
+
+var GIADataEssenceSubDescriptor = map[string]Group {
+    "urn:smpte:ul:060e2b34.01010101.01011502.00000000" : 	{UL:"InstanceID", Length : 0 ,Decode: DecodeTUUID},
+     "urn:smpte:ul:060e2b34.01010102.06010104.01010000" : 	{UL:"ObjectClass", Length : 0 ,Decode: DecodeTWeakReference},
+     "urn:smpte:ul:060e2b34.01010102.05200701.08000000" : 	{UL:"LinkedGenerationID", Length : 0 ,Decode: DecodeTAUID},
+     "urn:smpte:ul:060e2b34.0101010c.06010104.020e0000" : 	{UL:"ApplicationPlugInObjects", Length : 0 ,Decode: DecodeTApplicationPluginObjectStrongReferenceSet},
+     "urn:smpte:ul:060e2b34.01010105.0e090506.00000000" : 	{UL:"ImmersiveAudioVersion", Length : 1 ,Decode: DecodeTUInt8},
+     "urn:smpte:ul:060e2b34.01010105.0e090507.00000000" : 	{UL:"MaxChannelCount", Length : 2 ,Decode: DecodeTUInt16},
+     "urn:smpte:ul:060e2b34.01010105.0e090508.00000000" : 	{UL:"MaxObjectCount", Length : 2 ,Decode: DecodeTUInt16},
+     "urn:smpte:ul:060e2b34.01010105.0e090509.00000000" : 	{UL:"ImmersiveAudioID", Length : 0 ,Decode: DecodeTUUID},
+     "urn:smpte:ul:060e2b34.01010105.0e09050a.00000000" : 	{UL:"FirstFrame", Length : 4 ,Decode: DecodeTUInt32},
+     "urn:smpte:ul:060e2b34.0101010e.04020301.0f000000" : 	{UL:"IABSampleRate", Length : 8 ,Decode: DecodeTRational},
+ }
+type GIADataEssenceSubDescriptorStruct struct {
+    InstanceID TUUID // IsOptional:true
+
+}
+func (g *GIADataEssenceSubDescriptorStruct)Encode(primer *Primer) ([]byte, error){
+    var result,field ,BERField []byte
+
+    field, _ = EncodeTUUID(g.InstanceID)
+    result = append(result,[]byte{60,10}...)
+    primer.AddEntry([]byte{6,14,43,52,1,1,1,1,1,1,21,2,0,0,0,0},[]byte{60,10})
+    BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
+    result = append(result, BERField...)
+    result = append(result, field...)
+
+    header := []byte{6,14,43,52,2, 83,1, 5,14,9,6,6,0,0,0,0}
+
+	totalLength := BEREncode(len(result))
+	header = append(header, totalLength...)
+
+	result = append(header, result...)
+	return result, nil
+}
+
+var GEssenceDescriptor = map[string]Group {
+    "urn:smpte:ul:060e2b34.01010101.01011502.00000000" : 	{UL:"InstanceID", Length : 0 ,Decode: DecodeTUUID},
+     "urn:smpte:ul:060e2b34.01010102.06010104.01010000" : 	{UL:"ObjectClass", Length : 0 ,Decode: DecodeTWeakReference},
+     "urn:smpte:ul:060e2b34.01010102.05200701.08000000" : 	{UL:"LinkedGenerationID", Length : 0 ,Decode: DecodeTAUID},
+     "urn:smpte:ul:060e2b34.0101010c.06010104.020e0000" : 	{UL:"ApplicationPlugInObjects", Length : 0 ,Decode: DecodeTApplicationPluginObjectStrongReferenceSet},
+     "urn:smpte:ul:060e2b34.01010102.06010104.06030000" : 	{UL:"Locators", Length : 0 ,Decode: DecodeTLocatorStrongReferenceVector},
+     "urn:smpte:ul:060e2b34.01010109.06010104.06100000" : 	{UL:"SubDescriptors", Length : 0 ,Decode: DecodeTSubDescriptorStrongReferenceVector},
+ }
+type GEssenceDescriptorStruct struct {
+    InstanceID TUUID // IsOptional:true
+
+}
+func (g *GEssenceDescriptorStruct)Encode(primer *Primer) ([]byte, error){
+    var result,field ,BERField []byte
+
+    field, _ = EncodeTUUID(g.InstanceID)
+    result = append(result,[]byte{60,10}...)
+    primer.AddEntry([]byte{6,14,43,52,1,1,1,1,1,1,21,2,0,0,0,0},[]byte{60,10})
+    BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
+    result = append(result, BERField...)
+    result = append(result, field...)
+
+    header := []byte{6,14,43,52,2, 83,1, 1,13,1,1,1,1,1,36,0}
+
+	totalLength := BEREncode(len(result))
+	header = append(header, totalLength...)
+
+	result = append(header, result...)
+	return result, nil
+}
+
+var GPreface = map[string]Group {
+    "urn:smpte:ul:060e2b34.01010101.01011502.00000000" : 	{UL:"InstanceID", Length : 0 ,Decode: DecodeTUUID},
+     "urn:smpte:ul:060e2b34.01010102.06010104.01010000" : 	{UL:"ObjectClass", Length : 0 ,Decode: DecodeTWeakReference},
+     "urn:smpte:ul:060e2b34.01010102.05200701.08000000" : 	{UL:"LinkedGenerationID", Length : 0 ,Decode: DecodeTAUID},
+     "urn:smpte:ul:060e2b34.0101010c.06010104.020e0000" : 	{UL:"ApplicationPlugInObjects", Length : 0 ,Decode: DecodeTApplicationPluginObjectStrongReferenceSet},
+     "urn:smpte:ul:060e2b34.01010101.03010201.02000000" : 	{UL:"ByteOrder", Length : 2 ,Decode: DecodeTInt16},
+     "urn:smpte:ul:060e2b34.01010102.07020110.02040000" : 	{UL:"FileLastModified", Length : 0 ,Decode: DecodeTTimeStamp},
+     "urn:smpte:ul:060e2b34.01010102.06010104.02010000" : 	{UL:"ContentStorageObject", Length : 0 ,Decode: DecodeTStrongReference},
+     "urn:smpte:ul:060e2b34.01010102.06010104.02020000" : 	{UL:"Dictionary", Length : 0 ,Decode: DecodeTStrongReference},
+     "urn:smpte:ul:060e2b34.01010102.03010201.05000000" : 	{UL:"FormatVersion", Length : 0 ,Decode: DecodeTVersionType},
+     "urn:smpte:ul:060e2b34.01010102.06010104.06040000" : 	{UL:"IdentificationList", Length : 0 ,Decode: DecodeTIdentificationStrongReferenceVector},
+     "urn:smpte:ul:060e2b34.01010102.03010201.04000000" : 	{UL:"ObjectModelVersion", Length : 4 ,Decode: DecodeTUInt32},
+     "urn:smpte:ul:060e2b34.01010104.06010104.01080000" : 	{UL:"PrimaryPackage", Length : 0 ,Decode: DecodeTWeakReference},
+     "urn:smpte:ul:060e2b34.01010105.01020203.00000000" : 	{UL:"OperationalPattern", Length : 0 ,Decode: DecodeTAUID},
+     "urn:smpte:ul:060e2b34.01010105.01020210.02010000" : 	{UL:"EssenceContainers", Length : 0 ,Decode: DecodeTAUIDSet},
+     "urn:smpte:ul:060e2b34.01010105.01020210.02020000" : 	{UL:"DescriptiveSchemes", Length : 0 ,Decode: DecodeTAUIDSet},
+     "urn:smpte:ul:060e2b34.0101010e.04040503.00000000" : 	{UL:"IsRIPPresent", Length : 0 ,Decode: DecodeTBoolean},
+     "urn:smpte:ul:060e2b34.01010101.0d040101.40010100" : 	{UL:"APP_VTRErrorCount", Length : 4 ,Decode: DecodeTUInt32},
+     "urn:smpte:ul:060e2b34.01010101.0d040101.40010200" : 	{UL:"APP_PSEFailureCount", Length : 4 ,Decode: DecodeTUInt32},
+     "urn:smpte:ul:060e2b34.01010101.0d040101.40010300" : 	{UL:"APP_DigiBetaDropoutCount", Length : 4 ,Decode: DecodeTUInt32},
+     "urn:smpte:ul:060e2b34.01010101.0d040101.40010400" : 	{UL:"APP_TimecodeBreakCount", Length : 4 ,Decode: DecodeTUInt32},
+     "urn:smpte:ul:060e2b34.01010101.0d010801.01010000" : 	{UL:"Specification_Identifiers", Length : 0 ,Decode: DecodeTAUIDSet},
+     "urn:smpte:ul:060e2b34.0101010e.01020210.02040000" : 	{UL:"ConformsToSpecifications", Length : 0 ,Decode: DecodeTAUIDSet},
+ }
+type GPrefaceStruct struct {
+    InstanceID TUUID // IsOptional:true
+    FileLastModified TTimeStamp // IsOptional:false
+    ContentStorageObject TStrongReference // IsOptional:false
+    FormatVersion TVersionType // IsOptional:false
+    IdentificationList TIdentificationStrongReferenceVector // IsOptional:false
+    OperationalPattern TAUID // IsOptional:false
+    EssenceContainers TAUIDSet // IsOptional:false
+    DescriptiveSchemes TAUIDSet // IsOptional:false
+
+}
+func (g *GPrefaceStruct)Encode(primer *Primer) ([]byte, error){
+    var result,field ,BERField []byte
+
+    field, _ = EncodeTUUID(g.InstanceID)
+    result = append(result,[]byte{60,10}...)
+    primer.AddEntry([]byte{6,14,43,52,1,1,1,1,1,1,21,2,0,0,0,0},[]byte{60,10})
+    BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
+    result = append(result, BERField...)
+    result = append(result, field...)
+
+    field, _ = EncodeTTimeStamp(g.FileLastModified)
+    result = append(result,[]byte{59,2}...)
+    primer.AddEntry([]byte{6,14,43,52,1,1,1,2,7,2,1,16,2,4,0,0},[]byte{59,2})
+    BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
+    result = append(result, BERField...)
+    result = append(result, field...)
+
+    field, _ = EncodeTStrongReference(g.ContentStorageObject)
+    result = append(result,[]byte{59,3}...)
+    primer.AddEntry([]byte{6,14,43,52,1,1,1,2,6,1,1,4,2,1,0,0},[]byte{59,3})
+    BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
+    result = append(result, BERField...)
+    result = append(result, field...)
+
+    field, _ = EncodeTVersionType(g.FormatVersion)
+    result = append(result,[]byte{59,5}...)
+    primer.AddEntry([]byte{6,14,43,52,1,1,1,2,3,1,2,1,5,0,0,0},[]byte{59,5})
+    BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
+    result = append(result, BERField...)
+    result = append(result, field...)
+
+    field, _ = EncodeTIdentificationStrongReferenceVector(g.IdentificationList)
+    result = append(result,[]byte{59,6}...)
+    primer.AddEntry([]byte{6,14,43,52,1,1,1,2,6,1,1,4,6,4,0,0},[]byte{59,6})
+    BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
+    result = append(result, BERField...)
+    result = append(result, field...)
+
+    field, _ = EncodeTAUID(g.OperationalPattern)
+    result = append(result,[]byte{59,9}...)
+    primer.AddEntry([]byte{6,14,43,52,1,1,1,5,1,2,2,3,0,0,0,0},[]byte{59,9})
+    BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
+    result = append(result, BERField...)
+    result = append(result, field...)
+
+    field, _ = EncodeTAUIDSet(g.EssenceContainers)
+    result = append(result,[]byte{59,10}...)
+    primer.AddEntry([]byte{6,14,43,52,1,1,1,5,1,2,2,16,2,1,0,0},[]byte{59,10})
+    BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
+    result = append(result, BERField...)
+    result = append(result, field...)
+
+    field, _ = EncodeTAUIDSet(g.DescriptiveSchemes)
+    result = append(result,[]byte{59,11}...)
+    primer.AddEntry([]byte{6,14,43,52,1,1,1,5,1,2,2,16,2,2,0,0},[]byte{59,11})
+    BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
+    result = append(result, BERField...)
+    result = append(result, field...)
+
+    header := []byte{6,14,43,52,2, 83,1, 1,13,1,1,1,1,1,47,0}
+
+	totalLength := BEREncode(len(result))
+	header = append(header, totalLength...)
+
+	result = append(header, result...)
+	return result, nil
+}
+
+
+
+// Groups is a map of the groups in the groups register.
+// Values are found with their UL which takes the format
+// "urn:smpte:ul:00000000.00000000.00000000.00000000".
+//
+// Each group contains the individual fields and decode functions.
+var Groups = map[string]GroupID {
+"urn:smpte:ul:060e2b34.027f0105.0e090606.00000000" : {Name : "IADataEssenceSubDescriptor", Group:GIADataEssenceSubDescriptor}, 
+"urn:smpte:ul:060e2b34.027f0101.0d010101.01012400" : {Name : "EssenceDescriptor", Group:GEssenceDescriptor}, 
+"urn:smpte:ul:060e2b34.027f0101.0d010101.01012f00" : {Name : "Preface", Group:GPreface}, 
+}
+
+// ShortHandLookUp contain a map of the short hand hex bytes as
+// declared  in the register and their corresponding UL.
+var ShortHandLookUp = map[string]string {
+"2f01" : "urn:smpte:ul:060e2b34.01010102.06010104.06030000", 
+"3b01" : "urn:smpte:ul:060e2b34.01010101.03010201.02000000", 
+"3b02" : "urn:smpte:ul:060e2b34.01010102.07020110.02040000", 
+"3b03" : "urn:smpte:ul:060e2b34.01010102.06010104.02010000", 
+"3b04" : "urn:smpte:ul:060e2b34.01010102.06010104.02020000", 
+"3b05" : "urn:smpte:ul:060e2b34.01010102.03010201.05000000", 
+"3b06" : "urn:smpte:ul:060e2b34.01010102.06010104.06040000", 
+"3b07" : "urn:smpte:ul:060e2b34.01010102.03010201.04000000", 
+"3b08" : "urn:smpte:ul:060e2b34.01010104.06010104.01080000", 
+"3b09" : "urn:smpte:ul:060e2b34.01010105.01020203.00000000", 
+"3b0a" : "urn:smpte:ul:060e2b34.01010105.01020210.02010000", 
+"3b0b" : "urn:smpte:ul:060e2b34.01010105.01020210.02020000", 
+}
